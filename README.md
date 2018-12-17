@@ -86,3 +86,13 @@ https://azure.microsoft.com/ja-jp/blog/getting-started-with-azure-cognitive-serv
 業界標準のモデルファイルフォーマットである ONNX の推論実行環境が Open Source のプロジェクトとして公開されました。推論環境構築を最小限にして、多様なチップセット (CPU / GPU など) への対応を目指します。
 
 https://azure.microsoft.com/ja-jp/blog/onnx-runtime-is-now-open-source/
+
+## Azure Developer Reference
+
+Microsoft Learn -- 概要を理解する
+
+https://docs.microsoft.com/ja-jp/learn/
+
+Azure ドキュメント -- 自習書、目的別手順、サンプル、API仕様
+
+https://docs.microsoft.com/ja-jp/azure/
