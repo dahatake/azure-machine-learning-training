@@ -79,3 +79,9 @@ REST APIとして公開するための、`Azure Functions` での Python Support
 Getting started with Azure Cognitive Services in containers:
     
 https://azure.microsoft.com/ja-jp/blog/getting-started-with-azure-cognitive-services-in-containers/
+
+### ONNX Runtime
+
+業界標準のモデルファイルフォーマットである ONNX の推論実行環境が Open Source のプロジェクトとして公開されました。推論環境構築を最小限にして、多様なチップセット (CPU / GPU など) への対応を目指します。
+
+https://azure.microsoft.com/ja-jp/blog/onnx-runtime-is-now-open-source/
