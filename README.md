@@ -26,6 +26,11 @@ Visual Studio Code の Download:
 
 https://code.visualstudio.com/
 
+Visual Studio Code の開発環境の構築には、こちらの Python Extension Pack が便利です:
+
+https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack
+
+
 
 ## 学習
 
