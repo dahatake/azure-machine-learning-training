@@ -1,9 +1,11 @@
 # Python Developer のための Azure を使った 機械学習/深層学習 のための Training リソース
 Azure を利用しての 機械学習 を行うための各種ドキュメント および サンプルコード群です。
 
-## 開発環境
+# 開発環境 / ツール
 
 Python 開発をより円滑にするツール達です。Windows | MacOS | Linux で動きます。
+
+## 1. Azure Notebook
 
 無料の `JupyterNotebook` 環境である、`Azure Notebook` が大幅リニューアルです。
 
@@ -15,6 +17,7 @@ https://github.com/Microsoft/AzureNotebooks/wiki/Azure-Notebooks-at-Microsoft-Co
 
 https://docs.microsoft.com/ja-jp/azure/notebooks/
 
+## 2. Visual Studio Code + Python Extension
 
 `Visual Studio Code` での `Python` サポートです。
 
@@ -36,18 +39,39 @@ Azure Machine Learning の Python SDK を使っています。
 
 https://github.com/dahatake/MachineLearningNotebooks
 
-最初に `configuration.ipynb` を実行して、作成した Azure Machine Learning Workspace への接続情報を設定します。
 
-```python
-import os
+# 学習フェーズ
 
-subscription_id = os.getenv("SUBSCRIPTION_ID", default="<my-subscription-id>")
-resource_group = os.getenv("RESOURCE_GROUP", default="<my-resource-group>")
-workspace_name = os.getenv("WORKSPACE_NAME", default="<my-workspace-name>")
-workspace_region = os.getenv("WORKSPACE_REGION", default="eastus2")
+## 1. Data Science Virtual Machine
+
+Azure の `GPU` インスタンスの仮想マシンです。NVIDIA Dockerをはじめ、様々な Deep Learning を動かすためのモジュールが入っています。
+
+ドキュメント:
+
+https://docs.microsoft.com/ja-jp/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
+
+
+残念ながら、 Azure Machine Learning services Python SDK が古い場合があります (2018/12/20 のバージョン = 1.0.2)。その場合は Update をしてください。
+
+```bash
+pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U pip
 ```
 
-## 学習
+確認用の Python コード
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
+
+Azure Machine Learning Service - Python SDK のインストール
+
+https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py
+
+Reference:
+
+https://qiita.com/manji0/items/d3d824d77c18c2f28569
+
+## 2. Azure Machine Learning services
 
 なんといっても、`Azure Machine Learning services` が大幅にアーキテクチャを一新させ、GAしました。
 
@@ -65,10 +89,23 @@ https://docs.microsoft.com/ja-jp/azure/machine-learning/service/
 - 上記2つと Azure Machine Learning Experiment Services と Azure Machine Learning Model Management Services の2つはは、 Azure Machine Learning Services へ統合されます。
 - Python SDK (Data Prep | SDK (メインの) | Monitoring) が提供されています。これは、Pythonが動いていれば、Edge | PC/Mac | SmartPhone | Cloud どこからでも、呼べます。
 
+### サンプルコード の実行
 
-## 推論
+最初に `configuration.ipynb` を実行して、作成した Azure Machine Learning Workspace への接続情報を設定します。
+以下に似たコードがあります。
 
-### AI on Serverless
+```python
+import os
+
+subscription_id = os.getenv("SUBSCRIPTION_ID", default="<my-subscription-id>")
+resource_group = os.getenv("RESOURCE_GROUP", default="<my-resource-group>")
+workspace_name = os.getenv("WORKSPACE_NAME", default="<my-workspace-name>")
+workspace_region = os.getenv("WORKSPACE_REGION", default="eastus2")
+```
+
+# 推論 フェーズ
+
+## 1. Python on Azure Function
 
 REST APIとして公開するための、`Azure Functions` での Python Support ! ようやくです!
 
@@ -81,7 +118,7 @@ https://azure.microsoft.com/en-us/blog/native-python-support-on-azure-app-servic
 
 https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-python
 
-### AI on the Edge
+## 2. Cognitive Services
 
 `Cognitive Services` の一部のサービスは、Docker Container ベースですが、デバイス側で Model を動作させる事が出来ます。
 
@@ -101,13 +138,13 @@ Getting started with Azure Cognitive Services in containers:
     
 https://azure.microsoft.com/ja-jp/blog/getting-started-with-azure-cognitive-services-in-containers/
 
-### ONNX Runtime
+## 3. ONNX Runtime
 
 業界標準のモデルファイルフォーマットである ONNX の推論実行環境が Open Source のプロジェクトとして公開されました。推論環境構築を最小限にして、多様なチップセット (CPU / GPU など) への対応を目指します。
 
 https://azure.microsoft.com/ja-jp/blog/onnx-runtime-is-now-open-source/
 
-## Azure Developer Reference
+# Azure Developer Reference
 
 Microsoft Learn -- 概要を理解する
 
