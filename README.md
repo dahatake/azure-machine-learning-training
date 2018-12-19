@@ -30,7 +30,22 @@ Visual Studio Code の開発環境の構築には、こちらの Python Extensio
 
 https://marketplace.visualstudio.com/items?itemName=donjayamanne.python-extension-pack
 
+## サンプルコード
 
+Azure Machine Learning の Python SDK を使っています。
+
+https://github.com/dahatake/MachineLearningNotebooks
+
+最初に `configuration.ipynb` を実行して、作成した Azure Machine Learning Workspace への接続情報を設定します。
+
+```python
+import os
+
+subscription_id = os.getenv("SUBSCRIPTION_ID", default="<my-subscription-id>")
+resource_group = os.getenv("RESOURCE_GROUP", default="<my-resource-group>")
+workspace_name = os.getenv("WORKSPACE_NAME", default="<my-workspace-name>")
+workspace_region = os.getenv("WORKSPACE_REGION", default="eastus2")
+```
 
 ## 学習
 
