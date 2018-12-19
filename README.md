@@ -51,13 +51,13 @@ Azure の `GPU` インスタンスの仮想マシンです。NVIDIA Dockerをは
 https://docs.microsoft.com/ja-jp/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
 
 
-残念ながら、 Azure Machine Learning services Python SDK が古い場合があります (2018/12/20 のバージョン = 1.0.2)。その場合は Update をしてください。
+残念ながら、 Azure Machine Learning services Python SDK が古い場合があります (2018/12/20 のバージョン = 1.0.2)。その場合は Update をしてください。JupyterNotebook で実行している場合は、Kernel 自身の Restart もお忘れなく。
 
 ```bash
 pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U pip
 ```
 
-確認用の Python コード
+確認用の Python コード 例
 ```python
 import azureml.core
 print(azureml.core.VERSION)
