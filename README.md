@@ -111,7 +111,7 @@ Azure Machine Learning Service - Python SDK のインストール
 https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py
 
 
-## 2. Azure Machine Learning services
+## 3. Azure Machine Learning services
 
 なんといっても、`Azure Machine Learning services` が大幅にアーキテクチャを一新させ、GAしました。
 
