@@ -83,8 +83,15 @@ Azure の `GPU` インスタンスの仮想マシンです。NVIDIA Dockerをは
 
 https://docs.microsoft.com/ja-jp/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro
 
+## 2. Azure Machine Learning services Python SDK
 
 残念ながら、 Azure Machine Learning services Python SDK が古い場合があります (2018/12/20 のバージョン = 1.0.2)。その場合は Update をしてください。JupyterNotebook で実行している場合は、Kernel 自身の Restart もお忘れなく。
+
+```sh
+pip install --upgrade azureml-sdk[notebooks,automl,explain,contrib] azureml-dataprep
+```
+
+https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-create-workspace-with-python
 
 ```bash
 pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U pip
