@@ -89,6 +89,9 @@ https://docs.microsoft.com/ja-jp/azure/machine-learning/data-science-virtual-mac
 ```bash
 pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U pip
 ```
+Reference:
+
+https://qiita.com/manji0/items/d3d824d77c18c2f28569
 
 確認用の Python コード 例
 ```python
@@ -100,9 +103,6 @@ Azure Machine Learning Service - Python SDK のインストール
 
 https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py
 
-Reference:
-
-https://qiita.com/manji0/items/d3d824d77c18c2f28569
 
 ## 2. Azure Machine Learning services
 
